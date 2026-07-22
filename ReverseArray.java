@@ -20,7 +20,7 @@ public class ReverseArray {
             
         }
         System.out.println("Reverse Array is :");
-        printArray(arr);
+        // printArray(arr);
 
     }
 
@@ -33,6 +33,8 @@ public class ReverseArray {
         printArray(arr);
 
         reverseArray(arr);
+
+        printArray(arr);
 
     }
 }
