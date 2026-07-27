@@ -12,30 +12,32 @@ public class PrefixSum{
     public static void prefixSumSubArray(int arr[]){
         int copy[] = new int[arr.length];
         copy[0]= arr[0];
+        int maxSum = Integer.MIN_VALUE;
         for(int i=1;i<arr.length;i++){
             copy[i] = arr[i] + copy[i-1] ;
-        }
+        } 
         int sum =0;
-        for(int i=1;i<arr.length;i++){
+        for(int i=0;i<arr.length;i++){
             for(int j=i;j<arr.length;j++){
-                // for(int k=i;k<=j;k++){
-                //     System.out.print(arr[k]+ " ");
-                // }
-                // System.out.println("");
+                // sum = copy[j] - copy[i-1];
                 if (i==0){
                     sum = copy[j];
                 }
                 else{
                     sum = copy[j]-copy[i-1];
                 }
+                if(maxSum<sum ){
+                    maxSum = sum;
+                }
+
             }
             
         }
-        System.out.println("Prefix Sum array is :" + sum);
+        System.out.println("Maximum Sum of Subarray is :" + maxSum);
         printArray(copy);
     }
     public static void main(String[] args) {
-        int arr[] = {2,8,-4,10,4,7,-2};
+        int arr[] = {1,-2,6,-1,3};
         prefixSumSubArray(arr);
     }
 }
