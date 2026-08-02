@@ -8,36 +8,41 @@ public class PrefixSum{
             System.out.print(arr[i] +" ");
         }
     }
+    public static void prefixSum(int arr[]){
+        int prefix[] = new int[arr.length];
 
-    public static void prefixSumSubArray(int arr[]){
-        int copy[] = new int[arr.length];
-        copy[0]= arr[0];
-        int maxSum = Integer.MIN_VALUE;
+        prefix[0] = arr[0];
         for(int i=1;i<arr.length;i++){
-            copy[i] = arr[i] + copy[i-1] ;
-        } 
-        int sum =0;
+            prefix[i] = prefix[i-1] + arr[i];
+        }
+        // printArray(prefix);
+        int Currsum =0;
+        int maxSum = Integer.MIN_VALUE;
         for(int i=0;i<arr.length;i++){
+            Currsum =0;
+
             for(int j=i;j<arr.length;j++){
-                // sum = copy[j] - copy[i-1];
-                if (i==0){
-                    sum = copy[j];
+                if(i==0){
+                    Currsum = prefix[j] ;
                 }
                 else{
-                    sum = copy[j]-copy[i-1];
+                    Currsum = prefix[j]-prefix[i-1];
                 }
-                if(maxSum<sum ){
-                    maxSum = sum;
-                }
-
+                if (Currsum > maxSum) {
+                maxSum = Currsum;
             }
+            }
+
             
+
         }
-        System.out.println("Maximum Sum of Subarray is :" + maxSum);
-        printArray(copy);
+        System.out.println("Maximum Subarray:" + maxSum);
+
     }
+
+    
     public static void main(String[] args) {
         int arr[] = {-2,-3,4,-1,-2,1,5,-3};
-        prefixSumSubArray(arr);
+        prefixSum(arr);
     }
 }
