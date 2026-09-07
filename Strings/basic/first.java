@@ -24,7 +24,7 @@ public class first {
             System.out.println(firstName.charAt(7 ));
             System.out.println(lastName.compareTo(firstName));
 
-
+            System.out.println(firstName.equals(lastName));
         }
     }
 }
