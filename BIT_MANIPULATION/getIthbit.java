@@ -32,6 +32,15 @@ public class getIthbit {
         int Bitmask = num & (-1 <<i);
         return Bitmask;
     }
+
+    public static int clearRangeofBits(int num , int i,int j){
+        int a = ((~0)<<j+1);
+        int b = (1<<i) -1;
+        int bitMask = a | b;
+        return bitMask&num;
+
+
+    }
     public static void main(String[] args) {
        System.out.println(getBit(5, 2));
        System.out.println(getBit(6, 0));
@@ -42,6 +51,8 @@ public class getIthbit {
        System.out.println(updateBit(6, 0,1  ));
        System.out.println(clearIBits(7, 2));
        System.out.println(25^5);
+       System.out.println(clearRangeofBits(10,2, 4));
+
 
 
     }
