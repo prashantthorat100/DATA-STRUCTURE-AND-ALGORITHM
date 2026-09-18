@@ -5,6 +5,7 @@ public class methodOverRide {
     }
 }
 
+// RunTime PolyMorphism
 class Animal{
     void eat(){
         System.out.println("Eat Anything");
@@ -15,3 +16,4 @@ class Deer extends Animal{
         System.out.println("Eat Grass and Leaves only");
     }
 }
+
