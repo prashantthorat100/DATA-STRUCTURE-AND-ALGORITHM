@@ -42,13 +42,6 @@ public class OOPS{
         System.out.println(s2.marks[0]);
         System.out.println(s1.marks[0]);
 
-        
-
-
-
-        
-
-
     }
 }
 
@@ -96,6 +89,7 @@ class Student{
     //     this.marks = s2.marks;
 
     // }
+
     // Deep Copy Constructor
     Student(Student s2) {
         marks = new int[3];
