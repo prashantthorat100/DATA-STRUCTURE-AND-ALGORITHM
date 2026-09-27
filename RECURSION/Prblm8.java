@@ -10,11 +10,11 @@ public class Prblm8 {
         }
         
 
-        return lastOcc(arr, key, i--);
+        return lastOcc(arr, key, i-1);
     }
     public static void main(String[] args) {
-        int arr[] = {6,24,6,7,3,4,6,5};
-        System.out.println(lastOcc(arr, 6, 7));
+        int arr[] = {1,24,6,7,3,4,6,5};
+        System.out.println(lastOcc(arr, 1, 7));
 
     }
 }
