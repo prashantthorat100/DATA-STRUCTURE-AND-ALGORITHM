@@ -1,3 +1,9 @@
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
+
+import org.w3c.dom.Node;
+
 public class BinaryPreOrder {
     static class Node{
         int data;
@@ -49,6 +55,39 @@ public class BinaryPreOrder {
             postorder(root.right);
             System.out.print(root.data+" ");
         }
+
+        public static void levelorder(Node root, ArrayList<ArrayList<Integer>> list){
+            if(root==null){
+                return;
+            }
+            Queue<Node> q = new LinkedList<>();
+            q.add(root);
+            q.add(null);
+            ArrayList<Integer> l1 = new ArrayList<>();
+            while(!q.isEmpty()){
+                Node curr = q.remove();
+                if(curr == null){
+                    list.add(l1);
+                    l1 = new ArrayList<>();
+                    if(q.isEmpty()){
+                        break;
+                    }else{
+                        q.add(null);
+                    }
+                }
+                else{
+                    // System.out.print(curr.data+" ");
+                    l1.add(curr.data);
+                    if(curr.left!=null){
+                        q.add(curr.left);
+                    }
+                    if(curr.right!=null){
+                        q.add(curr.right);
+                    }
+
+                }
+            }
+        }
     }
     public static void main(String[] args) {
         int nodes[] = {1,2,4,-1,-1,5,-1,-1,3,-1,6,-1,-1};
@@ -61,5 +100,10 @@ public class BinaryPreOrder {
         tree.inorder(root);
         System.out.println();
         tree.postorder(root);
+
+        System.out.println("\n\nLevel Order");
+        ArrayList<ArrayList<Integer>> list = new ArrayList<>(); 
+        tree.levelorder(root, list);
+        System.out.print(list);
     }
 }
